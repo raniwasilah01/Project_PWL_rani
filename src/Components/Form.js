@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import DatePicker from "react-datepicker"
-import './Form.css';
 
-import "react-datepicker/dist/react-datepicker.css"; 
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Form() {
 
@@ -34,16 +33,14 @@ export default function Form() {
 
   return (
     <div className='container'>
-      <div className='col-sm-12'>
-        <h1 class='jdl'>FORM PENGISIAN DAFTAR MAHASISWA 2023</h1>
-      </div>
 
       <div className='row g-5 mt-5'>
         <form onSubmit={handleInput}>
           <div className="row g-3">
+
           <div className="col-sm-12">
               <label for="npm" className="form-label">NPM</label>
-              <input type="number" className="form-control isi" id="npm" value={npm} placeholder=""
+              <input type="number" className="form-control" id="npm" value={npm} placeholder=""
                 onInput={(event) => {
                   event.target.value = Math.max(0, parseInt(event.target.value)).toString().slice(0, 10)
                 }}
@@ -55,53 +52,47 @@ export default function Form() {
 
             <div className="col-sm-12">
               <label for="firstName" className="form-label">First name</label>
-              <input type="text" className="form-control isi" id="firstName" value={firstName} placeholder=""
+              <input type="text" className="form-control" id="firstName" value={firstName} placeholder=""
                 onChange={(event) => setFirstName(event.target.value)}
                 required />
-                
             </div>
 
             <div className="col-sm-12">
               <label for="middleName" className="form-label">Middle name</label>
-              <input type="text" className="form-control isi"   id="middleName" value={middleName} placeholder=""
+              <input type="text" className="form-control" id="middleName" value={middleName} placeholder=""
                 onChange={(event) => setMiddleName(event.target.value)}
               />
             </div>
 
             <div className="col-sm-12">
               <label for="lastName" className="form-label">Last name</label>
-              <input type="text" className="form-control isi" id="lastName" value={lastName} placeholder=""
+              <input type="text" className="form-control" id="lastName" value={lastName} placeholder=""
                 onChange={(event) => setLastName(event.target.value)}
                 required />
             </div>
 
-            <div class="col-md-6">
-            
-                <label for="address" className="form-label">Birthdate</label>
-                <DatePicker
-                  className="form-control isi"
-                  selected={date}
-                  placeholderText='Enter Birthdate'
-                  dateFormat="yyyy-MM-dd"
-                  required={true}
-                  onChange={(date) => {setDate(date)}}
-                      />
-            
+            <div className="col-12">
+              <label for="address" className="form-label">Birthdate</label>
+              <DatePicker
+                className='form-control'
+                selected={date}
+                dateFormat="yyyy-MM-dd"
+                onChange={(date) => setDate(date)}
+                required
+              />
             </div>
-            <div class='col-md-4'>
+
             {/* <button className="w-100 btn btn-primary btn-lg" type="submit">Submit</button> */}
-            <button type="submit" className="btn btn-danger bua" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="submit" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Submit
             </button>
-          </div>
-          
 
           </div>
 
         </form>
-        
+
         <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
                 {/* <h5 className="modal-title" id="exampleModalLabel">Modal title</h5> */}
@@ -114,8 +105,7 @@ export default function Form() {
                 <br />
                 {message3}
               </div>
-              <div className="modal-footer ">
-                
+              <div className="modal-footer">
                 {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" className="btn btn-primary">Save changes</button> */}
               </div>
